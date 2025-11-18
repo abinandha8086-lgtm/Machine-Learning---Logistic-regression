@@ -12,3 +12,13 @@ probabilities = model.predict_proba(X)
 
 print("Predictions:", predictions)
 print("Probabilities:\n", probabilities)
+
+
+try:
+    val = float(input("\nEnter a numeric value (e.g., 4.5) to predict class: "))
+    sample = np.array([[val]])
+    pred = model.predict(sample)[0]
+    prob = model.predict_proba(sample)[0]
+    print(f"Input: {val}  => Predicted class: {pred}, Probabilities: {prob}")
+except ValueError:
+    print("Invalid input. Please enter a number.")
